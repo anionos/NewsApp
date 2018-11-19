@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 loadingIndicator.setVisibility(View.VISIBLE);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("key", "fashion");
+                bundle.putString(getString(R.string.key), getString(R.string.fashion));
                 // Initialize the loader. Pass in the int ID constant defined above and pass in null for
                 // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
                 // because this activity implements the LoaderCallbacks interface).
@@ -278,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 loadingIndicator.setVisibility(View.VISIBLE);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("key", "politics");
+                bundle.putString(getString(R.string.key), getString(R.string.politics));
                 // Initialize the loader. Pass in the int ID constant defined above and pass in null for
                 // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
                 // because this activity implements the LoaderCallbacks interface).
@@ -306,7 +306,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Uri baseUri = Uri.parse(USGS_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
-        uriBuilder.appendQueryParameter("q", bundle.getString("key"));
+        uriBuilder.appendQueryParameter("q", bundle.getString((getString(R.string.key))));
         uriBuilder.appendQueryParameter("api-key", "test");
 
 
