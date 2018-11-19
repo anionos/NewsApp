@@ -9,5 +9,11 @@
     <string name="key">key</string>
     <string name="fashion">fashion</string>
     <string name="politics">politics</string>
+    <string name="politics2">Politics</string>
+    <string name="fashion2">Fashion</string>
+    <string name="sports2">Sports</string>
+    <string name="world2">World</string>
+    <string name="world">world</string>
+    <string name="sports">sports</string>
 
 </resources>

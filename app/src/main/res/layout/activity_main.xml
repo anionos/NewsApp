@@ -290,7 +290,7 @@
         <ListView
             android:id="@+id/news_list"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="1300dp"
             android:layout_below="@id/textView_current_showing_news"
             android:divider="@android:color/transparent"
             android:dividerHeight="10dp"

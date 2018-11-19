@@ -90,20 +90,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mNewsAdapter = new NewsAdapter(this, new ArrayList<News>());
         //set the listview to the adapter
         newsListView.setAdapter(mNewsAdapter);
-
-        newsListView.setOnTouchListener(new View.OnTouchListener() {
-            // Setting on Touch Listener for handling the touch inside ScrollView
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // Disallow the touch request for parent scroll on touch of child view
-                v.getParent().requestDisallowInterceptTouchEvent(true);
-                return false;
-            }
-        });
-        setListViewHeightBasedOnChildren(newsListView);
-
         trendingRecyclerView.setNestedScrollingEnabled(false);
-
 
 
         //create the adapter
@@ -168,35 +155,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setTodayNewsClickListners();
     }
 
-    /**** Method for Setting the Height of the ListView dynamically.
-     **** Hack to fix the issue of not showing all the items of the ListView
-     **** when placed inside a ScrollView  ****/
-    public static void setListViewHeightBasedOnChildren(ListView listView) {
-        ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null)
-            return;
-
-        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
-        int totalHeight = 0;
-        View view = null;
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            view = listAdapter.getView(i, view, listView);
-            if (i == 0)
-                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-            view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-            totalHeight += view.getMeasuredHeight();
-        }
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
-    }
-
     public void setTodayNewsClickListners() {
         CardView worldCardView = findViewById(R.id.world);
         CardView sportCardView = findViewById(R.id.sport);
         CardView fashionCardView = findViewById(R.id.fashion);
         CardView politicsCardView = findViewById(R.id.politics);
+        final TextView currentTV = findViewById(R.id.textView_current_showing_news);
 
         final View view1 = findViewById(R.id.view1);
         final View view2 = findViewById(R.id.view2);
@@ -216,7 +180,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 loadingIndicator.setVisibility(View.VISIBLE);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("key", "world");
+                bundle.putString("key", getString(R.string.world));
+                currentTV.setText(R.string.world2);
                 // Initialize the loader. Pass in the int ID constant defined above and pass in null for
                 // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
                 // because this activity implements the LoaderCallbacks interface).
@@ -237,7 +202,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 loadingIndicator.setVisibility(View.VISIBLE);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("key", "sports");
+                bundle.putString("key", getString(R.string.sports));
+                currentTV.setText(R.string.sports2);
                 // Initialize the loader. Pass in the int ID constant defined above and pass in null for
                 // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
                 // because this activity implements the LoaderCallbacks interface).
@@ -259,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
                 Bundle bundle = new Bundle();
                 bundle.putString(getString(R.string.key), getString(R.string.fashion));
+                currentTV.setText(R.string.fashion2);
                 // Initialize the loader. Pass in the int ID constant defined above and pass in null for
                 // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
                 // because this activity implements the LoaderCallbacks interface).
@@ -279,6 +246,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
                 Bundle bundle = new Bundle();
                 bundle.putString(getString(R.string.key), getString(R.string.politics));
+                currentTV.setText(R.string.politics2);
                 // Initialize the loader. Pass in the int ID constant defined above and pass in null for
                 // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
                 // because this activity implements the LoaderCallbacks interface).

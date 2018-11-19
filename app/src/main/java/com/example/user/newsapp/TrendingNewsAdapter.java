@@ -19,9 +19,9 @@ import java.util.Random;
 public class TrendingNewsAdapter  extends RecyclerView.Adapter<TrendingNewsAdapter.TrendingViewHolder>{
 
     Random random = new Random();
-    int[] drawables = new int[] {R.drawable.sport, R.drawable.fashion, R.drawable.world, R.drawable.politics,
-            R.drawable.sport, R.drawable.fashion, R.drawable.world, R.drawable.politics,
-            R.drawable.sport, R.drawable.fashion, R.drawable.world, R.drawable.politics};
+    int[] drawables = new int[] {R.drawable.sport, R.drawable.fashion, R.drawable.world, R.drawable.world2,
+            R.drawable.sport, R.drawable.film, R.drawable.business, R.drawable.politics,
+            R.drawable.global, R.drawable.fashion, R.drawable.food, R.drawable.and};
     private Context context;
     private ArrayList<News> newsArrayList;
     TrendingListItemClickListner trendingListItemClickListner;
