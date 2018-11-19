@@ -124,6 +124,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/textView_authorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/lato"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/textView_news_title"
+            app:layout_constraintTop_toBottomOf="@+id/textView_news_title" />
+
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>

@@ -43,6 +43,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
             TextView newsTitleTextView = newsListItem.findViewById(R.id.textView_news_title);
             TextView categoryTextView = newsListItem.findViewById(R.id.textView_news_category);
             TextView dateTextView = newsListItem.findViewById(R.id.textView_date_time);
+            TextView authorTextView = newsListItem.findViewById(R.id.textView_authorName);
             ImageView newImageView = newsListItem.findViewById(R.id.imageView_news);
 
 
@@ -51,6 +52,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
             newsTitleTextView.setText(news.getTitle());
             categoryTextView.setText(news.getCategory());
             dateTextView.setText(news.getDate().substring(0,10));
+            authorTextView.setText(news.getAuthorName());
 
             int randomImagePosition = random.nextInt((10 - 0) + 1) + 0;
             newImageView.setImageResource(drawables[randomImagePosition]);

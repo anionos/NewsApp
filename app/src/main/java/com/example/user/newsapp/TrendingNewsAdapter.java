@@ -46,6 +46,7 @@ public class TrendingNewsAdapter  extends RecyclerView.Adapter<TrendingNewsAdapt
         holder.newsTitle.setText(news.getTitle());
         holder.newsCategory.setText(news.getCategory());
         holder.newsDate.setText(news.getDate().substring(0,10));
+        holder.newsAuthor.setText(news.getAuthorName());
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +75,7 @@ public class TrendingNewsAdapter  extends RecyclerView.Adapter<TrendingNewsAdapt
         TextView newsTitle;
         TextView newsCategory;
         TextView newsDate;
+        TextView newsAuthor;
         ImageView imageView;
 
         public TrendingViewHolder(View itemView) {
@@ -82,6 +84,7 @@ public class TrendingNewsAdapter  extends RecyclerView.Adapter<TrendingNewsAdapt
             newsTitle = itemView.findViewById(R.id.textView_news_title);
             newsCategory = itemView.findViewById(R.id.textView_news_category);
             newsDate = itemView.findViewById(R.id.textView_news_date);
+            newsAuthor = itemView.findViewById(R.id.textView_authorName);
             imageView = itemView.findViewById(R.id.trending_img);
         }
     }

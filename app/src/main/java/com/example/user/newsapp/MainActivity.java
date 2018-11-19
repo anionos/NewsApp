@@ -7,17 +7,14 @@ import android.content.Loader;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,16 +36,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
      */
     private static final int NEWS_LOADER_ID = 1;
     private static final int TRENDING_NEWS_LOADER_ID = 2;
-    private static final int SPORT_NEWS_LOADER_ID = 3;
-    private static final int FASHION_NEWS_LOADER_ID = 4;
-    private static final int POLITICS_NEWS_LOADER_ID = 5;
     private static final String TAG = MainActivity.class.getSimpleName();
 
     /**
      * Adapter for the list of earthquakes
      */
     private NewsAdapter mNewsAdapter;
-    private TrendingNewsAdapter mTrendingAdapter;
 
     /**
      * TextView that is displayed when the list is empty
@@ -275,6 +268,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         uriBuilder.appendQueryParameter("q", bundle.getString((getString(R.string.key))));
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
         uriBuilder.appendQueryParameter("api-key", "test");
 
 
